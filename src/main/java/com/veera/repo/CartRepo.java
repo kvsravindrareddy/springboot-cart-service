@@ -39,7 +39,7 @@ public class CartRepo {
 
     public Cart deleteProduct(final String userId, final Long productId) {
         Cart cart = cartMap.get(userId);
-        List<Product> products = cart.getProducts().stream().filter(product -> !product.getId().equals(productId)).collect(Collectors.toList());
+        List<Product> products = cart.getProducts().stream().filter(product -> !product.id().equals(productId)).collect(Collectors.toList());
         cart.setProducts(products);
         return cartMap.replace(userId, cart);
     }
